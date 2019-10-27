@@ -1,6 +1,17 @@
 Releases
 ========
 
+Version 2.6.2, Released October 20, 2019
+----------------------------------------
+
+* Fix bug in streaming mode that would generate tap files
+  when the plan was already set (affected pytest).
+
+Version 2.6.1, Released September 17, 2019
+------------------------------------------
+
+* Fix TAP version 13 support from more-itertools behavior change.
+
 Version 2.6, Released September 16, 2019
 ----------------------------------------
 
