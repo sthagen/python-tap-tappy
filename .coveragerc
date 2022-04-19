@@ -1,0 +1,10 @@
+[paths]
+source =
+    tap
+    */site-packages/tap
+
+[run]
+omit =
+    tap/tests/*
+    # This is tested with tox -e module in CI.
+    tap/__main__.py

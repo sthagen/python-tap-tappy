@@ -24,15 +24,12 @@ pip-log.txt
 
 # Unit test / coverage reports
 .coverage
+coverage.xml
 .tox
 nosetests.xml
 htmlcov
 .cache
 .pytest_cache
-
-# Translations
-.transifex.ini
-*.mo
 
 # Mr Developer
 .mr.developer.cfg

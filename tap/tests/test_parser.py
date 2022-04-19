@@ -1,5 +1,3 @@
-# Copyright (c) 2019, Matt Layman and contributors
-
 from contextlib import contextmanager
 import inspect
 from io import BytesIO, StringIO
@@ -183,7 +181,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_text(self):
         sample = inspect.cleandoc(
-            u"""1..2
+            """1..2
             ok 1 A passing test
             not ok 2 A failing test"""
         )
@@ -225,7 +223,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_yaml(self):
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
                ---
@@ -240,7 +238,7 @@ class TestParser(unittest.TestCase):
             lines.append(line)
 
         if have_yaml:
-            converted_yaml = yaml.safe_load(u"""test: sample yaml""")
+            converted_yaml = yaml.safe_load("""test: sample yaml""")
             self.assertEqual(4, len(lines))
             self.assertEqual(13, lines[0].version)
             self.assertEqual(converted_yaml, lines[2].yaml_block)
@@ -258,7 +256,7 @@ class TestParser(unittest.TestCase):
         # using the same parser. Make sure that parsing works regardless of
         # the order of the incoming documents.
         sample_version_13 = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing version 13 test
                ---
@@ -309,7 +307,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_yaml_no_end(self):
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
                ---
@@ -323,7 +321,7 @@ class TestParser(unittest.TestCase):
             lines.append(line)
 
         if have_yaml:
-            converted_yaml = yaml.safe_load(u"""test: sample yaml""")
+            converted_yaml = yaml.safe_load("""test: sample yaml""")
             self.assertEqual(4, len(lines))
             self.assertEqual(13, lines[0].version)
             self.assertEqual(converted_yaml, lines[2].yaml_block)
@@ -338,7 +336,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_yaml_more_complex(self):
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
                ---
@@ -363,7 +361,7 @@ class TestParser(unittest.TestCase):
 
         if have_yaml:
             converted_yaml = yaml.safe_load(
-                u'''
+                '''
                message: test
                severity: fail
                data:
@@ -384,7 +382,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_yaml_no_association(self):
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
             # Diagnostic line
@@ -409,7 +407,7 @@ class TestParser(unittest.TestCase):
 
     def test_parses_yaml_no_start(self):
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
                test: sample yaml
@@ -432,7 +430,7 @@ class TestParser(unittest.TestCase):
     def test_malformed_yaml(self):
         self.maxDiff = None
         sample = inspect.cleandoc(
-            u"""TAP version 13
+            """TAP version 13
             1..2
             ok 1 A passing test
                ---
@@ -442,7 +440,7 @@ class TestParser(unittest.TestCase):
             not ok 2 A failing test"""
         )
         yaml_err = inspect.cleandoc(
-            u"""
+            """
 WARNING: Optional imports not found, TAP 13 output will be
     ignored. To parse yaml, see requirements in docs:
     https://tappy.readthedocs.io/en/latest/consumers.html#tap-version-13"""
@@ -486,7 +484,7 @@ WARNING: Optional imports not found, TAP 13 output will be
     @mock.patch(
         "tap.parser.sys.stdin",
         StringIO(
-            u"""1..2
+            """1..2
 ok 1 A passing test
 not ok 2 A failing test"""
         ),

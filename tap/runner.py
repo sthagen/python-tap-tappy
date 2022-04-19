@@ -1,12 +1,9 @@
-# Copyright (c) 2019, Matt Layman and contributors
-
 import os
 from unittest import TextTestResult, TextTestRunner
 from unittest.runner import _WritelnDecorator
 import sys
 
 from tap import formatter
-from tap.i18n import _
 from tap.tracker import Tracker
 
 
@@ -62,7 +59,7 @@ class TAPTestResult(TextTestResult):
         self.tracker.add_not_ok(
             self._cls_name(test),
             self._description(test),
-            "TODO {}".format(_("(expected failure)")),
+            "TODO {}".format("(expected failure)"),
             diagnostics=diagnostics,
         )
 
@@ -71,7 +68,7 @@ class TAPTestResult(TextTestResult):
         self.tracker.add_ok(
             self._cls_name(test),
             self._description(test),
-            "TODO {}".format(_("(unexpected success)")),
+            "TODO {}".format("(unexpected success)"),
         )
 
     def _cls_name(self, test):
@@ -86,11 +83,9 @@ class TAPTestResult(TextTestResult):
                 )
             except KeyError:
                 sys.exit(
-                    _(
-                        "Bad format string: {format}\n"
-                        "Replacement options are: {{short_description}} and "
-                        "{{method_name}}"
-                    ).format(format=self.FORMAT)
+                    "Bad format string: {format}\n"
+                    "Replacement options are: {{short_description}} and "
+                    "{{method_name}}".format(format=self.FORMAT)
                 )
 
         return test.shortDescription() or str(test)

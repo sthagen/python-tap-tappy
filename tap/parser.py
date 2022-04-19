@@ -1,12 +1,9 @@
-# Copyright (c) 2019, Matt Layman and contributors
-
 from io import StringIO
 import itertools
 import re
 import sys
 
 from tap.directive import Directive
-from tap.i18n import _
 from tap.line import Bail, Diagnostic, Plan, Result, Unknown, Version
 
 try:
@@ -195,6 +192,6 @@ WARNING: Optional imports not found, TAP 13 output will be
         version = int(match.group("version"))
         if version < self.TAP_MINIMUM_DECLARED_VERSION:
             raise ValueError(
-                _("It is an error to explicitly specify any version lower than 13.")
+                "It is an error to explicitly specify any version lower than 13."
             )
         return Version(version)
