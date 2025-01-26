@@ -1,10 +1,24 @@
+tappy is a set of tools for working with the `Test Anything Protocol (TAP)
+<http://testanything.org/>`_, a line based test protocol for recording test
+data in a standard way.
+
+Follow tappy development on `GitHub <https://github.com/python-tap/tappy>`_.
+Developer documentation is on
+`Read the Docs <https://tappy.readthedocs.io/>`_.
+
 Releases
 ========
 
-Version 3.2, To Be Released
----------------------------
+Version 3.2, Released January 25, 2025
+--------------------------------------
 
 * Drop support for Python 3.6 (it is end-of-life).
+* Drop support for Python 3.7 (it is end-of-life).
+* Drop support for Python 3.8 (it is end-of-life).
+* Add support for Python 3.11.
+* Add support for Python 3.12.
+* Add support for Python 3.13.
+* Add support for adding diagnostics to ok test.
 
 Version 3.1, Released December 29, 2021
 ---------------------------------------
